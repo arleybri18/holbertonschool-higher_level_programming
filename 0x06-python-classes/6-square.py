@@ -25,14 +25,14 @@ class Square:
         Returns:
             nothing, print the square
         """
-        if self.__size == 0:
+        if self.__size is 0:
             print()
         else:
             if self.__position[1] is not 0:
                 print("\n" * self.__position[1], end="")
             for i in range(self.__size):
-                print(" " * self.__position[0], end="")
-                print("#" * self.__size)
+                print("{}".format(" " * self.__position[0]), end="")
+                print("{}".format("#" * self.__size))
 
     @property
     def size(self):

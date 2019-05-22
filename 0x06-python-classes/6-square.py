@@ -10,8 +10,8 @@ class Square:
         size (int): Size of the square object
         position (int,int): position for print the square
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     def area(self):
         """Method to calculate area

@@ -18,9 +18,10 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
         else:
+            string = ""
             for i in range(self.__height):
-                print("{}".format("#" * self.__width))
-            return ""
+                string = "{}{}\n".format(string, "#" * self.__width)
+            return string[:-1]
     
     def area(self):
         """Method that return the area of the rectangle

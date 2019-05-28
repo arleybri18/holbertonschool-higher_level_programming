@@ -4,6 +4,9 @@ class Rectangle:
         validate type and value > to 0, send a message Error using raised
         and define a method to asign values
     """
+    number_of_instances = 0
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """Method init
         Args:
@@ -13,18 +16,29 @@ class Rectangle:
         """
         self.width = width
         self.height = height
+        type(self).number_of_instances += 1
 
     def __str__(self):
+        """Method for string representation
+        """
         if self.__width == 0 or self.__height == 0:
             return ""
         else:
-            string = ""
+            st = ""
             for i in range(self.__height):
-                string = "{}{}\n".format(string, "#" * self.__width)
-            return string[:-1]
+                st = "{}{}\n".format(st, self.print_symbol * self.__width)
+            return st[:-1]
 
     def __repr__(self):
+        """Method for representation class
+        """
         return "Rectangle("+str(self.__width)+","+str(self.__height)+")"
+
+    def __del__(self):
+        """Method that delete a object
+        """
+        type(self).number_of_instances -= 1
+        print("Bye rectangle...")
 
     def area(self):
         """Method that return the area of the rectangle
@@ -81,3 +95,15 @@ class Rectangle:
             raise ValueError('height must be >= 0')
         else:
             self.__height = value
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        if isinstance(rect_1, Rectangle) is False:
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        elif isinstance(rect_2, Rectangle) is False:
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        else:
+            if rect_1.area() < rect_2.area():
+                return rect_2
+            else:
+                return rect_1

@@ -4,6 +4,8 @@ class Rectangle:
         validate type and value > to 0, send a message Error using raised
         and define a method to asign values
     """
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """Method init
         Args:
@@ -13,6 +15,7 @@ class Rectangle:
         """
         self.width = width
         self.height = height
+        type(self).number_of_instances += 1
 
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
@@ -25,6 +28,10 @@ class Rectangle:
 
     def __repr__(self):
         return "Rectangle("+str(self.__width)+","+str(self.__height)+")"
+
+    def __del__(self):
+        type(self).number_of_instances -= 1
+        print("Bye rectangle...")
 
     def area(self):
         """Method that return the area of the rectangle

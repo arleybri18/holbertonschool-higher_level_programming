@@ -1,0 +1,20 @@
+The ``1-my_list.py`` module
+======================
+
+Using ``print_sorted``
+-------------------
+
+This test text file in for function print_sorted from class
+MyList.  First import ``1-my_list.py``module:
+
+    >>> MyList = __import__('1-my_list').MyList
+
+Now use it:
+
+    >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
+    >>> my_list.append(98)
+    >>> my_list.append(-52)
+    >>> my_list.print_sorted()
+    [-52, 98]

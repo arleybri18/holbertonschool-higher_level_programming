@@ -47,3 +47,11 @@ class Square(Rectangle):
                     kwargs["height"] = kwargs[key]
 
         super().update(*args_sq, **kwargs)
+
+    def to_dictionary(self):
+        new_dict = {}
+        new_dict["x"] = self.__dict__["_Rectangle__x"]
+        new_dict["y"] = self.__dict__["_Rectangle__y"]
+        new_dict["size"] = self.__dict__["_Rectangle__width"]
+        new_dict["id"] = self.__dict__["id"]
+        return new_dict

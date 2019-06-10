@@ -136,3 +136,12 @@ class Rectangle(Base):
                     self.x = kwargs[key]
                 elif key == "y":
                     self.y = kwargs[key]
+
+    def to_dictionary(self):
+        new_dict = {}
+        new_dict["x"] = self.__dict__["_Rectangle__x"]
+        new_dict["y"] = self.__dict__["_Rectangle__y"]
+        new_dict["width"] = self.__dict__["_Rectangle__width"]
+        new_dict["height"] = self.__dict__["_Rectangle__height"]
+        new_dict["id"] = self.__dict__["id"]
+        return new_dict

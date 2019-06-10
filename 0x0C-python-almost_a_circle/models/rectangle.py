@@ -95,6 +95,28 @@ class Rectangle(Base):
     def __str__(self):
         '''method __str__ , generate a string object
         Return: a string with the information of the object'''
-        return "[{}] ({}) <{}>/<{}> - <{}>/<{}>".format(
+        return "[{}] ({}) {}/{} - {}/{}".format(
             self.__class__.__name__, self.id, self.__x,
             self.__y, self.__width, self.__height)
+
+    def update(self, *args):
+        '''method update
+       Args:
+            *args (list):
+                1st argument should be the id attribute
+                2nd argument should be the width attribute
+                3rd argument should be the height attribute
+                4th argument should be the x attribute
+                5th argument should be the y attribute
+        Return: Nothing, update the argument sended'''
+        for idx in range(len(args)):
+            if idx == 0:
+                self.id = args[idx]
+            elif idx == 1:
+                self.width = args[idx]
+            elif idx == 2:
+                self.height = args[idx]
+            elif idx == 3:
+                self.x = args[idx]
+            elif idx == 4:
+                self.y = args[idx]

@@ -86,9 +86,11 @@ class Rectangle(Base):
 
     def display(self):
         '''method display
-        Print the rectangle with # character'''
+        Print the rectangle with # character, move depends of x or y'''
+        if self.__y > 0:
+            print('\n'*self.__y, end="")
         for i in range(self.__height):
-            print("{}".format("#"*self.__width))
+            print("{}{}".format(" "*self.__x, "#"*self.__width))
 
     def __str__(self):
         '''method __str__ , generate a string object

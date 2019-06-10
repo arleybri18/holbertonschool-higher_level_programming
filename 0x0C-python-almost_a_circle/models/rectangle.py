@@ -89,3 +89,10 @@ class Rectangle(Base):
         Print the rectangle with # character'''
         for i in range(self.__height):
             print("{}".format("#"*self.__width))
+
+    def __str__(self):
+        '''method __str__ , generate a string object
+        Return: a string with the information of the object'''
+        return "[{}] ({}) <{}>/<{}> - <{}>/<{}>".format(
+            self.__class__.__name__, self.id, self.__x,
+            self.__y, self.__width, self.__height)

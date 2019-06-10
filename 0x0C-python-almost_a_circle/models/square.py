@@ -24,4 +24,26 @@ class Square(Rectangle):
         '''setter for size'''
         self.width = value
         self.height = value
+    
+    def update(self, *args, **kwargs):
+        '''update arguments of the square'''
+        args_sq = []
+        for idx in range(len(args)):
+            if idx == 0:
+                args_sq.append(args[idx])
+            elif idx == 1:
+                args_sq.append(args[idx])
+                args_sq.append(args[idx])
+            elif idx == 2:
+                args_sq.append(args[idx])
+            elif idx == 3:
+                args_sq.append(args[idx])
 
+        if len(kwargs) != 0:
+            kwargs_cp = kwargs.copy()
+            for key in kwargs_cp:
+                if key == "size":
+                    kwargs["width"] = kwargs[key]
+                    kwargs["height"] = kwargs[key]
+
+        super().update(*args_sq, **kwargs)

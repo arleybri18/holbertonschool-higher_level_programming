@@ -99,7 +99,7 @@ class Rectangle(Base):
             self.__class__.__name__, self.id, self.__x,
             self.__y, self.__width, self.__height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         '''method update
        Args:
             *args (list):
@@ -108,15 +108,31 @@ class Rectangle(Base):
                 3rd argument should be the height attribute
                 4th argument should be the x attribute
                 5th argument should be the y attribute
+            **kwargs can be thought of as a double pointer
+            to a dictionary: key/value
+                skipped if *args exists and is not empty
         Return: Nothing, update the argument sended'''
-        for idx in range(len(args)):
-            if idx == 0:
-                self.id = args[idx]
-            elif idx == 1:
-                self.width = args[idx]
-            elif idx == 2:
-                self.height = args[idx]
-            elif idx == 3:
-                self.x = args[idx]
-            elif idx == 4:
-                self.y = args[idx]
+        if (len(args) > 0):
+            for idx in range(len(args)):
+                if idx == 0:
+                    self.id = args[idx]
+                elif idx == 1:
+                    self.width = args[idx]
+                elif idx == 2:
+                    self.height = args[idx]
+                elif idx == 3:
+                    self.x = args[idx]
+                elif idx == 4:
+                    self.y = args[idx]
+        else:
+            for key in kwargs:
+                if key == "id":
+                    self.id = kwargs[key]
+                elif key == "width":
+                    self.width = kwargs[key]
+                elif key == "height":
+                    self.height = kwargs[key]
+                elif key == "x":
+                    self.x = kwargs[key]
+                elif key == "y":
+                    self.y = kwargs[key]

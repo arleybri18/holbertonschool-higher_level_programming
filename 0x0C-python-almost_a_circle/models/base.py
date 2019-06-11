@@ -46,8 +46,19 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        '''return the new list with the json string'''
         new_list = []
         if json_string is None or len(json_string) == 0:
             return new_list
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        '''create instances of the class'''
+        if cls.__name__ == "Rectangle":
+            base_obj = cls(5, 5)
+        elif cls.__name__ == "Square":
+            base_obj = cls(5)
+        base_obj.update(**dictionary)
+        return base_obj

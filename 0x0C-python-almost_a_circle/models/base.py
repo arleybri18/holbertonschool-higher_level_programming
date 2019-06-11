@@ -13,8 +13,8 @@ class Base:
         if id is not None:
             self.id = id
         else:
-            Base.__nb_objects += 1
-            self.id = Base.__nb_objects
+            self.__nb_objects += 1
+            self.id = self.__nb_objects
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -40,3 +40,11 @@ class Base:
                 new_list.append(li_obj.to_dictionary())
         with open(type(list_objs[0]).__name__ + '.json', 'w', encoding ="utf-8") as file:
             file.write(cls.to_json_string(new_list))
+
+    @staticmethod
+    def from_json_string(json_string):
+        new_list = []
+        if json_string is None or len(json_string) == 0:
+            return new_list
+        else:
+            return json.loads(json_string)

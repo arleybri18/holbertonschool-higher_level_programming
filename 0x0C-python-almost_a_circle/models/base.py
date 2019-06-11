@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 '''Class Base'''
 import json
+
+
 class Base:
     '''This class will be the base of all other classes in this project.
     The goal of it is to manage id attribute in all your future classes
@@ -39,7 +41,7 @@ class Base:
         if list_objs is not None:
             for li_obj in list_objs:
                 new_list.append(li_obj.to_dictionary())
-        with open(type(list_objs[0]).__name__ + '.json', 'w', encoding ="utf-8") as file:
+        with open(type(list_objs[0]).__name__ + '.json', 'w') as file:
             file.write(cls.to_json_string(new_list))
 
     @staticmethod

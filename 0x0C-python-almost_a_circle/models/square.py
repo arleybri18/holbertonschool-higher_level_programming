@@ -1,5 +1,5 @@
 #!/bin/usr/python3
-'''import class Rectangle'''
+'''thi class inherits from rectangle'''
 from models.rectangle import Rectangle
 
 
@@ -10,21 +10,22 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        '''overwrite method __str__'''
+        '''overwrite method str'''
         return "[{}] ({}) {}/{} - {}".format(
             self.__class__.__name__, self.id, self.x,
             self.y, self.width)
+
     @property
     def size(self):
-        '''getter for size'''
+        '''this method set the size'''
         return self.width
 
     @size.setter
     def size(self, value):
-        '''setter for size'''
+        '''this method the size'''
         self.width = value
         self.height = value
-    
+
     def update(self, *args, **kwargs):
         '''update arguments of the square'''
         args_sq = []
@@ -49,6 +50,7 @@ class Square(Rectangle):
         super().update(*args_sq, **kwargs)
 
     def to_dictionary(self):
+        '''this method return a dictionary'''
         new_dict = {}
         new_dict["x"] = self.__dict__["_Rectangle__x"]
         new_dict["y"] = self.__dict__["_Rectangle__y"]

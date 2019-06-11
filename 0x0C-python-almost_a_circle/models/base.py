@@ -38,10 +38,10 @@ class Base:
             list_objs : List of objects
             Return: Write a file'''
         new_list = []
-        if list_objs is not None:
+        if list_objs:
             for li_obj in list_objs:
                 new_list.append(li_obj.to_dictionary())
-        with open(type(list_objs[0]).__name__ + '.json', 'w') as file:
+        with open(cls.__name__ + '.json', 'w') as file:
             file.write(cls.to_json_string(new_list))
 
     @staticmethod

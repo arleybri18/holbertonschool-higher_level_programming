@@ -1,4 +1,4 @@
-#!/bin/usr/python3
+#!/user/bin/python3
 '''this class inherits from rectangle'''
 from models.rectangle import Rectangle
 

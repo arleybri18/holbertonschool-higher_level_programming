@@ -2,6 +2,7 @@
 '''Class Base'''
 import json
 import os.path
+import csv
 
 
 class Base:
@@ -74,4 +75,33 @@ class Base:
                 output = cls.from_json_string(string)
                 for item in output:
                     new_list.append(cls.create(**item))
+        return new_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        '''save in csv file'''
+        name_file = cls.__name__ + ".csv"
+        new_list = []
+        if list_objs:
+            for li_obj in list_objs:
+                new_list.append(li_obj.to_dictionary())
+        with open(name_file, 'w') as file:
+            keys = new_list[0].keys()
+            writer = csv.DictWriter(file, keys)
+            writer.writeheader()
+            writer.writerows(new_list)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        '''load from file csv'''
+        new_list = []
+        new_dict = {}
+        name_file = cls.__name__ + ".csv"
+        if os.path.exists(name_file):
+            with open(name_file, mode='r') as csv_file:
+                csv_reader = csv.DictReader(csv_file)
+                for row in csv_reader:
+                    for key, value in row.items():
+                        new_dict[key] = int(value)
+                    new_list.append(cls.create(**new_dict))
         return new_list

@@ -4,5 +4,5 @@ SELECT b.name
 FROM tv_show_genres a
 LEFT JOIN tv_genres b
 ON a.genre_id = b.id
-WHERE a.show_id = 8
+WHERE a.show_id = (SELECT id FROM tv_shows WHERE title = "Dexter")
 ORDER BY 1 ASC;

@@ -10,8 +10,9 @@ if __name__ == '__main__':
                          db=argv[3])
     cur = db.cursor()
     cur.execute("""SELECT c.name FROM cities c
-                JOIN states s ON c.state_id = s.id
-                WHERE s.name = %s ORDER BY c.id""", (argv[4],))
+                LEFT JOIN states s ON c.state_id = s.id
+                WHERE s.name LIKE BINARY %s
+                ORDER BY c.id""", (argv[4],))
     rows = cur.fetchall()
     cont = 0
     for row in rows:

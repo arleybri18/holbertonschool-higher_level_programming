@@ -17,7 +17,7 @@ if __name__ == '__main__':
     cont = 0
     for row in rows:
         if cont < len(rows) - 1:
-            print("{}, ".format(row[0]), end="")
+            print("{}".format(row[0]), end=", ")
             cont += 1
         else:
             print("{}".format(row[0]))

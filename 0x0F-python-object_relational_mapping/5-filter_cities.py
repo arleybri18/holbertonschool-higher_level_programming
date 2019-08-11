@@ -12,7 +12,7 @@ if __name__ == '__main__':
     cur.execute("""SELECT c.name FROM cities c
                 LEFT JOIN states s ON c.state_id = s.id
                 WHERE s.name LIKE BINARY %s
-                ORDER BY c.id""", (argv[4],))
+                ORDER BY c.id ASC""", (argv[4],))
     rows = cur.fetchall()
     cont = 0
     for row in rows:

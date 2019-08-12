@@ -11,8 +11,8 @@ class City(Base):
     Implement model cities """
     __tablename__ = 'cities'
     id = Column(Integer, primary_key=True,
-               unique=True, nullable=False,
-               autoincrement=True)
+                unique=True, nullable=False,
+                autoincrement=True)
     state_id = Column(Integer, ForeignKey('states.id'),
-                     nullable=False)
+                      nullable=False)
     name = Column(String(128), nullable=False)

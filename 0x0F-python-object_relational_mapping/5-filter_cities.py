@@ -15,12 +15,9 @@ if __name__ == '__main__':
                 ORDER BY c.id ASC""", (argv[4],))
     rows = cur.fetchall()
     cont = 0
-    if rows:
-        for row in rows:
-            if cont < len(rows) - 1:
-                print("{}".format(row[0]), end=", ")
-                cont += 1
-            else:
-                print("{}".format(row[0]))
+    lista = []
+    for row in rows:
+        lista.append(row[0])
+    print(", ".join(lista))
     cur.close()
     db.close()

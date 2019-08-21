@@ -3,6 +3,7 @@
 
 
 def find_peak(list_of_integers):
+    """ return the peak """
     l = list_of_integers
     peaks = []
     for i in range(1, len(list_of_integers)-1):

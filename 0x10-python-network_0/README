@@ -39,3 +39,16 @@ A variable email must be sent with the value hr@holbertonschool.com
 A variable subject must be sent with the value I will always be here for PLD
 You have to use curl
 Please test your script in the container provided, using the web server running on port 5000
+
+6. Find a peak mandatory
+Technical interview preparation:
+
+You are not allowed to google anything
+Whiteboard first
+Write a function that finds a peak in a list of unsorted integers.
+
+Prototype: def find_peak(list_of_integers):
+You are not allowed to import any module
+Your algorithm must have the lowest complexity
+6-peak.py must contain the function
+6-peak.txt must contain the complexity of your algorithm: O(log(n)), O(n), O(nlog(n)) or O(n2)

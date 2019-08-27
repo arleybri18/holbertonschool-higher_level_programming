@@ -3,7 +3,7 @@
 """
 import urllib.request as req
 
-url = "https://intranet.hbtn.io/status"
+url = req.Request("https://intranet.hbtn.io/status")
 with req.urlopen(url) as response:
     html = response.read()
     print("Body response:")

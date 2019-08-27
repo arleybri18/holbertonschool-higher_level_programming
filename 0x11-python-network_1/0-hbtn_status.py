@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-""" use urlib for make requests """
+""" use urlib for make requests
+"""
+import urllib.request as req
 
-import urllib.request
-
-with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
+url = "https://intranet.hbtn.io/status"
+with req.urlopen(url) as response:
     html = response.read()
     print("Body response:")
     print("\t- type: {}".format(type(html)))

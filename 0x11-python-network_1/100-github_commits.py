@@ -5,8 +5,8 @@ import requests
 import sys
 
 try:
-    owner = sys.argv[1]
-    repo = sys.argv[2]
+    owner = sys.argv[2]
+    repo = sys.argv[1]
     url = 'https://api.github.com/repos/'+owner+"/"+repo+"/commits"
     res = requests.get(url)
     res = res.json()

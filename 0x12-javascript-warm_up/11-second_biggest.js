@@ -11,7 +11,7 @@ if (len > 3) {
     j++;
   }
   /* use sort function */
-  console.log(arr.sort()[j - 2]);
+  console.log(arr.sort((a,b) => b - a)[1]);
 } else {
   console.log(0);
 }

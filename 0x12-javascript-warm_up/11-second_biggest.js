@@ -3,13 +3,14 @@ const arg = process.argv;
 const len = arg.length;
 const arr = [];
 let i, j;
-if (len > 2) {
+if (len > 3) {
   /* create new array */
   j = 0;
   for (i = 2; i < len; i++) {
     arr[j] = arg[i];
     j++;
   }
+  /* use sort function */
   console.log(arr.sort()[j - 2]);
 } else {
   console.log(0);

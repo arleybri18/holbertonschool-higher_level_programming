@@ -11,7 +11,7 @@ if (num) {
       j++;
     }
     console.log(str);
-  	i++;
+    i++;
   }
 } else {
   console.log('Missing size');

@@ -1,6 +1,6 @@
 #!/usr/bin/node
 /* Define class Square */
-const Rectangle = require('./4-rectangle');
+const Rectangle = require('./5-square');
 class Square extends Rectangle {
   /* constructor call super constructor */
   constructor (size) {
